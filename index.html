@@ -1,233 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pokémon New World | Open-World Adventure</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Rift Adventure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #FFCC00;
-      --secondary: #3B5CA7;
-      --accent: #E60012;
-      --dark: #1A1A1A;
-      --light: #F5F5F5;
-    }
     body {
-      font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+      font-family: 'Press Start 2P', cursive;
+      background: #fffef3;
       margin: 0;
       padding: 0;
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
+      color: #111;
     }
-    .hero {
-      background: linear-gradient(135deg, #3B5CA7 0%, #1A1A1A 100%);
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    header {
       text-align: center;
+      padding: 60px 20px 40px;
+      background-color: #ffde59;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    header p {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    .cta {
+      background-color: #e60012;
       color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    .pixel-animation {
-      width: 300px;
-      height: 300px;
-      margin: 20px auto;
-      image-rendering: pixelated;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: all 0.3s;
-    }
-    .pixel-animation:hover {
-      transform: scale(1.05);
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
     .section {
-      padding: 80px 20px;
-      max-width: 1200px;
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 960px;
       margin: 0 auto;
     }
-    .feature-box {
+    .section h2 {
+      font-size: 1.5rem;
+      color: #e60012;
+      margin-bottom: 20px;
+    }
+    .section p {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: #333;
+    }
+    .features {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
-      margin: 40px 0;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
     }
-    .feature {
-      width: 30%;
-      min-width: 300px;
-      margin: 15px;
-      padding: 25px;
+    .feature-box {
       background: white;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      border: 2px solid #ffe066;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
-    .feature:hover {
+    .feature-box:hover {
       transform: translateY(-5px);
     }
-    .worldview {
-      background-color: var(--secondary);
-      color: white;
-      position: relative;
+    .cta-section {
+      background-color: #fff0b3;
+      padding: 60px 20px;
+      text-align: center;
     }
-    .pokemon-card {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: all 0.3s;
+    .cta-section h2 {
+      font-size: 1.5rem;
+      color: #222;
     }
-    .pokemon-card:hover {
-      box-shadow: 0 5px 20px rgba(255,204,0,0.3);
+    .cta-section p {
+      font-size: 0.875rem;
+      color: #333;
     }
-    .premium {
-      border: 3px solid var(--primary);
-      position: relative;
-      overflow: hidden;
-    }
-    .premium::after {
-      content: "Premium Exclusive";
-      position: absolute;
-      top: 10px;
-      right: -25px;
-      background: var(--primary);
-      color: #000;
-      padding: 2px 30px;
-      font-size: 12px;
-      font-weight: bold;
-      transform: rotate(45deg);
+    .cta-section button {
+      margin-top: 20px;
+      background-color: #ff9900;
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
     footer {
-      background-color: var(--dark);
-      color: white;
       text-align: center;
-      padding: 30px;
-    }
-    @media (max-width: 768px) {
-      .feature {
-        width: 100%;
-      }
+      padding: 40px;
+      background-color: #ffde59;
+      color: #222;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Pokémon Rift Adventure</h1>
+    <p>Explore the rift. Catch the unknown. Rewrite destiny.</p>
+    <button class="cta">Pre-register Now</button>
+  </header>
 
-<nav style="background-color: var(--dark); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 100;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-    <span style="color: var(--primary); font-weight: bold; font-size: 1.5rem;">Pokémon New World</span>
-    <div>
-      <a href="#story" style="color: white; margin: 0 15px; text-decoration: none;">Worldview</a>
-      <a href="#pokemons" style="color: white; margin: 0 15px; text-decoration: none;">Pokédex</a>
-      <a href="#join" style="color: white; margin: 0 15px; text-decoration: none;">Join</a>
-    </div>
-  </div>
-</nav>
-
-<section class="hero">
-  <h1 style="font-size: 3rem; margin-bottom: 20px;">Pokémon New World</h1>
-  <p style="font-size: 1.5rem; margin-bottom: 40px; max-width: 800px;">Explore the uncharted land of Oresia and discover Pokémon never seen before.</p>
-  <div class="pixel-animation" style="background-image: url('https://img.itch.zone/aW1nLzEzNDg2NDA3LnBuZw==/original/B%2FdHVN.png');"></div>
-  <div style="margin-top: 30px;">
-    <a href="#join" style="background-color: var(--accent); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block;">Pre-register Now</a>
-    <a href="#story" style="background-color: var(--primary); color: var(--dark); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block;">Learn More</a>
-  </div>
-</section>
-
-<section class="section worldview" id="story">
-  <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">The Legend of the Oresia Continent</h2>
-  <div class="feature-box">
-    <div class="feature">
-      <h3 style="color: var(--secondary);">▌Mysteries of the Dimensional Rifts</h3>
-      <p>Every century, glowing dimensional rifts appear across the Oresia continent. These anomalies connect to parallel worlds, each opening unleashing entirely new species of Pokémon...</p>
-      <div class="pixel-animation" style="background-image: url('https://img.itch.zone/aW1nLzEzNDg2NDA4LnBuZw==/original/%2B%2F%2FgV.png'); height: 150px;"></div>
-      <p style="font-style: italic; color: #DDD;">"The cries echoing from the rifts were both familiar and foreign... definitely not from any Pokémon we know."<br>— Explorer Layla's Journal</p>
-    </div>
-    <div class="feature">
-      <h3 style="color: var(--secondary);">▌The Seven Biomes of Oresia</h3>
-      <p>The continent is divided by mysterious energy into seven distinct ecological zones, each home to unique Pokémon species:</p>
-      <ul>
-        <li><strong>Crystal Tundra</strong>: Ice Pokémon evolved under shimmering auroras</li>
-        <li><strong>Quantum Jungle</strong>: Flora bears stat-enhancing berries</li>
-        <li><strong>Ruined Mechopolis</strong>: Nest of steel and electric Pokémon</li>
-      </ul>
-      <div class="pixel-animation" style="background-image: url('https://img.itch.zone/aW1nLzEzNDg2NDA5LnBuZw==/original/%2Fj%2FQ1F.png'); height: 150px;"></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="pokemons">
-  <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Newly Discovered Pokémon</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    <div class="pokemon-card" style="width: 45%; min-width: 300px;">
-      <h3 style="color: var(--accent); border-bottom: 2px solid #EEE; padding-bottom: 10px;">Leafgeist</h3>
-      <div class="pixel-animation" style="background-image: url('https://img.itch.zone/aW1nLzEzNDg2NDEwLnBuZw==/original/%2F5%2F%2F6.png'); height: 200px;"></div>
-      <p><strong>Type</strong>: Grass / Ghost</p>
-      <p><strong>Ability</strong>: Becomes invisible under sunlight</p>
-      <p><strong>Habitat</strong>: Quantum Jungle</p>
-      <p style="color: #666; font-size: 0.9em;">Basic Version: Catch standard form</p>
-    </div>
-    <div class="pokemon-card premium" style="width: 45%; min-width: 300px;">
-      <h3 style="color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 10px;">Leafgeist - Moonlit Form</h3>
-      <div class="pixel-animation" style="background-image: url('https://img.itch.zone/aW1nLzEzNDg2NDExLnBuZw==/original/3%2F%2F%2FQ.png'); height: 200px;"></div>
-      <p><strong>Type</strong>: Grass / Ghost / Fairy</p>
-      <p><strong>Ability</strong>: Power doubles under full moon</p>
-      <p><strong>Condition</strong>: Evolve using Moonstone on a full moon night</p>
-      <p style="color: var(--primary); font-size: 0.9em;">Premium Exclusive: Special evolution form</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="join" style="background-color: #F5F5F5;">
-  <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Join the Adventure</h2>
-  <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-    <h3 style="text-align: center; color: var(--secondary); margin-bottom: 30px;">Choose Your Edition</h3>
-    <div style="display: flex; margin-bottom: 30px;">
-      <div style="flex: 1; padding: 20px; border-right: 1px dashed #DDD;">
-        <h4 style="text-align: center;">Basic Version</h4>
-        <ul>
-          <li>Explore 7 biomes</li>
-          <li>Catch 200+ Pokémon</li>
-          <li>Standard storyline</li>
-          <li>Starter equipment set</li>
-        </ul>
+  <section class="section">
+    <h2>Why Join the Adventure?</h2>
+    <p>Unleash your inner trainer in an epic world torn by rifts and time. Discover rare Pokémon, make critical decisions, and uncover your own story. Are you ready to shift the fate of Aurecia?</p>
+    <div class="features">
+      <div class="feature-box">
+        <h3>Dynamic World</h3>
+        <p>Real-time weather, shifting terrain, and evolving biomes change how and where you play.</p>
       </div>
-      <div style="flex: 1; padding: 20px;">
-        <h4 style="text-align: center; color: var(--primary);">Premium Edition</h4>
-        <ul>
-          <li>Unlock hidden rifts</li>
-          <li>Catch 50+ alternate forms</li>
-          <li>Exclusive story branches</li>
-          <li>Elite Investigator gear</li>
-          <li>72-hour early access</li>
-        </ul>
+      <div class="feature-box">
+        <h3>Rift Pokémon</h3>
+        <p>Capture mysterious Pokémon that exist only between timelines—before they vanish forever.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Story Your Way</h3>
+        <p>Your actions shape the world: forge peace, fuel chaos, or rule the rift.</p>
       </div>
     </div>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #DDD; border-radius: 5px;">
-      <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #DDD; border-radius: 5px;">
-      <select name="version" required style="width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #DDD; border-radius: 5px;">
-        <option value="">Choose Your Edition</option>
-        <option value="basic">Basic Version (Free)</option>
-        <option value="premium">Premium Version (¥128)</option>
-      </select>
-      <button type="submit" style="width: 100%; padding: 15px; background-color: var(--accent); color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Submit Application</button>
-    </form>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>© 2023 Pokémon New World | Fan-made, unofficial project</p>
-  <p style="margin-top: 15px;">
-    <a href="#" style="color: #AAA; margin: 0 10px; text-decoration: none;">Privacy Policy</a>
-    <a href="#" style="color: #AAA; margin: 0 10px; text-decoration: none;">Terms of Use</a>
-    <a href="#" style="color: #AAA; margin: 0 10px; text-decoration: none;">Contact Us</a>
-  </p>
-</footer>
+  <section class="cta-section">
+    <h2>Begin your legacy now</h2>
+    <p>Register today and receive a special Rift Pokémon when the game launches!</p>
+    <button class="cta">Register & Claim Reward</button>
+  </section>
 
+  <footer>
+    <p>© 2025 Pokémon Rift Adventure. Fan-made project. All rights belong to respective owners.</p>
+  </footer>
 </body>
 </html>
